@@ -12,6 +12,7 @@ models/pt/*.pt
 models/onnx/*.onnx
 models/text/*.ts
 models/**/*.tmp
+releases/
 
 # OS/local noise
 .DS_Store

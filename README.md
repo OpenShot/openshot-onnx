@@ -26,12 +26,14 @@ Default output goes here:
 models/pt/       downloaded official checkpoints
 models/onnx/     exported ONNX models
 models/labels/   shared label files and manifest
-models.json      release/download manifest for consumers
+releases/        generated GitHub Release zip assets
+models.json      friendly release/download catalog for consumers
 ```
 
-Large model binaries are ignored by Git. `models.json` is the file apps and
-scripts should read: it lists each model, labels, output shapes, checksum, file
-size, and GitHub Release download URL.
+Large model binaries and generated release zips are ignored by Git. `models.json`
+is the file apps and scripts should read: it lists the friendly model names,
+release zip assets, and download base URL. During release packaging, the exporter
+refreshes each generated zip checksum.
 
 ## Models
 
@@ -63,6 +65,20 @@ Export everything:
 python scripts/export_yolo_seg_onnx.py --families yolov8 yolo11 yolo26 yoloe26
 ```
 
+## Release Packages
+
+The exporter writes one self-contained zip per model under `releases/` and
+updates `models.json`:
+
+```text
+releases/yolo26n-seg.zip
+  model.onnx
+  classes.names
+```
+
+The checked-in `models.json` intentionally stays small so OpenShot can populate
+a compact dropdown such as `YOLO26: Nano`, `YOLOv11: Nano`, and `YOLOv8: Nano`.
+
 ## Details
 
 All exports use:
@@ -85,6 +101,9 @@ models/labels/coco80.names
 models/labels/yoloe26-4585.names
 models/labels/manifest.json
 ```
+
+Release zips duplicate the required labels as `classes.names` so every download
+is self-contained.
 
 ## Examples
 

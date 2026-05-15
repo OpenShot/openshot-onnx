@@ -5,6 +5,7 @@ Generated model files are intentionally ignored by Git:
 - `models/pt/*.pt`
 - `models/onnx/*.onnx`
 - `models/text/*.ts`
+- `releases/*.zip`
 
 The ONNX files are reproducible with:
 
@@ -38,6 +39,16 @@ Class labels are not duplicated per model. Shared label sets live in
 `models/labels/`, and `models/labels/manifest.json` maps each ONNX filename to
 the correct label file and output width.
 
-The root `models.json` file is the consumer-facing release manifest. It maps
-each model to its GitHub Release URL, checksum, label file, class count, and
-output shapes.
+Release packages duplicate the required label file inside each zip as
+`classes.names`:
+
+```text
+yolo26n-seg.zip
+  model.onnx
+  classes.names
+```
+
+The root `models.json` file is the consumer-facing release catalog. It stays
+small on purpose: friendly dropdown names, zip asset filenames, and release
+download information. The exporter refreshes zip checksums when release packages
+are generated.
