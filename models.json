@@ -1,0 +1,566 @@
+{
+  "generated_by": "scripts/export_yolo_seg_onnx.py",
+  "labels": {
+    "coco80": "models/labels/coco80.names",
+    "yoloe26-4585": "models/labels/yoloe26-4585.names"
+  },
+  "license_note": "Repository code is MIT licensed. Model weights and ONNX exports are subject to Ultralytics licensing.",
+  "models": [
+    {
+      "bytes": 89907491,
+      "classes": 80,
+      "family": "yolo11",
+      "format": "onnx",
+      "id": "yolo11m-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "fd7c6fe7ba0516d1f3336c4082651bf34cbf8e8d6c2ae15fd32b46e5479f6230",
+      "size": "m",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolo11m-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 11763718,
+      "classes": 80,
+      "family": "yolo11",
+      "format": "onnx",
+      "id": "yolo11n-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "4f2d026e6322389a91c8f47ed79d324770ca7ee931bbf4654faa409a26702d68",
+      "size": "n",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolo11n-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 40680531,
+      "classes": 80,
+      "family": "yolo11",
+      "format": "onnx",
+      "id": "yolo11s-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "fd9f5edf1b39242784be1805a5165f9b6f7ca4121f0ea5ebc54bcaea6a5dd718",
+      "size": "s",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolo11s-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 94601277,
+      "classes": 80,
+      "family": "yolo26",
+      "format": "onnx",
+      "id": "yolo26m-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "ca2ab83743a03abb492b8d53fff1545ddc73fa8c78faa185f49a03fd7aaa58e9",
+      "size": "m",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolo26m-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 11204139,
+      "classes": 80,
+      "family": "yolo26",
+      "format": "onnx",
+      "id": "yolo26n-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "5bf5dc6cdc3578cc7ebf3326c6d6131364f9ddb628eebec3b2b91c91aa1636e7",
+      "size": "n",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolo26n-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 41897820,
+      "classes": 80,
+      "family": "yolo26",
+      "format": "onnx",
+      "id": "yolo26s-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "5e4d6e92839598bfc56515299fa8c181f1024be6102fd1fdf87600441721804c",
+      "size": "s",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolo26s-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 108576092,
+      "classes": 4585,
+      "family": "yoloe26",
+      "format": "onnx",
+      "id": "yoloe-26m-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/yoloe26-4585.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            4621,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "28e3249c2e0889d7f93795524b002ea03d1bd4c1207390096028105f46b4f2a5",
+      "size": "m",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yoloe-26m-seg.onnx",
+      "vocabulary": "yoloe26-4585"
+    },
+    {
+      "bytes": 15664388,
+      "classes": 4585,
+      "family": "yoloe26",
+      "format": "onnx",
+      "id": "yoloe-26n-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/yoloe26-4585.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            4621,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "829b9eaa8def6c77e9e26813aa9683a1ff1f4c0ebcaba78c4b189fb6359544e3",
+      "size": "n",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yoloe-26n-seg.onnx",
+      "vocabulary": "yoloe26-4585"
+    },
+    {
+      "bytes": 48952955,
+      "classes": 4585,
+      "family": "yoloe26",
+      "format": "onnx",
+      "id": "yoloe-26s-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/yoloe26-4585.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            4621,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "b996d5cc111a839cb2aafb12d66f73dfcbabd146690d9300ec87a2aa1f670607",
+      "size": "s",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yoloe-26s-seg.onnx",
+      "vocabulary": "yoloe26-4585"
+    },
+    {
+      "bytes": 109352784,
+      "classes": 80,
+      "family": "yolov8",
+      "format": "onnx",
+      "id": "yolov8m-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "ea63e42387bac5b8466cca1b8e1ebb8b4c6790fd239505e658af66758fe871aa",
+      "size": "m",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolov8m-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 13873432,
+      "classes": 80,
+      "family": "yolov8",
+      "format": "onnx",
+      "id": "yolov8n-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "367f6b842c755c24e8df809afe2618a8dab3d7999b928e78cad189c397e99709",
+      "size": "n",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolov8n-seg.onnx",
+      "vocabulary": "coco80"
+    },
+    {
+      "bytes": 47498647,
+      "classes": 80,
+      "family": "yolov8",
+      "format": "onnx",
+      "id": "yolov8s-seg",
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ]
+      },
+      "labels": "models/labels/coco80.names",
+      "outputs": {
+        "detections": {
+          "name": "output0",
+          "shape": [
+            1,
+            116,
+            8400
+          ]
+        },
+        "prototypes": {
+          "name": "output1",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ]
+        }
+      },
+      "postprocess": {
+        "boxes": "xywh",
+        "mask_coefficients": 32,
+        "nms_in_graph": false
+      },
+      "sha256": "f76b895eed87f761f531eb9a219202f752dacd909b138b6d80cf46801bc92f63",
+      "size": "s",
+      "task": "segment",
+      "url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0/yolov8s-seg.onnx",
+      "vocabulary": "coco80"
+    }
+  ],
+  "name": "OpenShot YOLO ONNX Models",
+  "release_base_url": "https://github.com/OpenShot/yolo-onnx-models/releases/download/v0.1.0",
+  "schema": 1,
+  "version": "0.1.0"
+}

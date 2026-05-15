@@ -1,0 +1,64 @@
+{
+  "models": {
+    "yolo11m-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolo11n-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolo11s-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolo26m-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolo26n-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolo26s-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yoloe-26m-seg.onnx": {
+      "class_count": 4585,
+      "labels": "models/labels/yoloe26-4585.names",
+      "output0_width": 4621
+    },
+    "yoloe-26n-seg.onnx": {
+      "class_count": 4585,
+      "labels": "models/labels/yoloe26-4585.names",
+      "output0_width": 4621
+    },
+    "yoloe-26s-seg.onnx": {
+      "class_count": 4585,
+      "labels": "models/labels/yoloe26-4585.names",
+      "output0_width": 4621
+    },
+    "yolov8m-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolov8n-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    },
+    "yolov8s-seg.onnx": {
+      "class_count": 80,
+      "labels": "models/labels/coco80.names",
+      "output0_width": 116
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# Local Python environment
+.venv/
+__pycache__/
+*.py[cod]
+
+# Editor/project state
+.idea/
+.vscode/
+
+# Generated model artifacts. Keep these local or publish via Git LFS/releases.
+models/pt/*.pt
+models/onnx/*.onnx
+models/text/*.ts
+models/**/*.tmp
+
+# OS/local noise
+.DS_Store
+Thumbs.db

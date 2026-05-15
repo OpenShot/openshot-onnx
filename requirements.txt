@@ -1,0 +1,55 @@
+# Install this file with:
+#   python -m pip install --no-deps -r requirements.txt
+#
+# PyTorch CPU wheels are installed separately from the PyTorch CPU index.
+# --no-deps keeps Ultralytics from replacing opencv-python-headless with the
+# full opencv-python package while still leaving Python cv2 available.
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+PyYAML==6.0.3
+Pygments==2.20.0
+certifi==2026.4.22
+charset-normalizer==3.4.7
+clip @ git+https://github.com/ultralytics/CLIP.git@81ff68ed7ffcac3b40484c914f104f816757308d
+colorama==0.4.6
+contourpy==1.3.3
+cycler==0.12.1
+filelock==3.29.0
+flatbuffers==25.12.19
+fonttools==4.63.0
+fsspec==2026.4.0
+ftfy==6.3.1
+idna==3.15
+kiwisolver==1.5.0
+markdown-it-py==4.2.0
+matplotlib==3.10.9
+mdurl==0.1.2
+ml_dtypes==0.5.4
+mpmath==1.3.0
+networkx==3.6.1
+numpy==2.4.4
+onnx==1.21.0
+onnxruntime==1.26.0
+onnxsim==0.6.3
+onnxslim==0.1.93
+opencv-python-headless==4.13.0.92
+packaging==26.2
+pillow==12.2.0
+polars-runtime-32==1.40.1
+polars==1.40.1
+protobuf==7.34.1
+psutil==7.2.2
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+requests==2.34.2
+regex==2026.5.9
+rich==15.0.0
+scipy==1.17.1
+six==1.17.0
+sympy==1.14.0
+tqdm==4.67.3
+typing_extensions==4.15.0
+ultralytics-thop==2.0.19
+ultralytics==8.4.51
+urllib3==2.7.0
+wcwidth==0.7.0

@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Model binaries are ignored by default. If you intentionally publish them in
+# Git, use Git LFS or GitHub Releases instead of normal Git blobs.
+*.pt binary
+*.onnx binary
