@@ -44,7 +44,7 @@ FAMILY_NAMES = {
     "yolo26": "YOLO26",
     "yolo11": "YOLOv11",
     "yolov8": "YOLOv8",
-    "yoloe26": "YOLOE",
+    "yoloe26": "YOLOE-26",
 }
 
 MODEL_DESCRIPTIONS = {
@@ -62,7 +62,7 @@ MODEL_DESCRIPTIONS = {
     "yoloe-26m-seg": "More labels, quality",
 }
 
-FAMILY_ORDER = ("yolo26", "yolo11", "yolov8", "yoloe26")
+FAMILY_ORDER = ("yolo26", "yoloe26", "yolo11", "yolov8")
 SIZE_ORDER = ("n", "s", "m", "l", "x")
 
 
