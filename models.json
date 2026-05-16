@@ -6,7 +6,7 @@
     {
       "id": "yolo26n-seg",
       "name": "YOLO26: Nano",
-      "description": "Best default",
+      "description": "Recommended, fastest",
       "asset": "yolo26n-seg.zip",
       "sha256": "9acd85c6c572ecfd2c88272eb040e12cc35f853b26b8336bda4617038882246e",
       "bytes": 9721608,
@@ -15,7 +15,7 @@
     {
       "id": "yolo26s-seg",
       "name": "YOLO26: Small",
-      "description": "Better masks",
+      "description": "Better quality",
       "asset": "yolo26s-seg.zip",
       "sha256": "280dfd82c26948964c0703893d6b16c7e5f81d39c1e59c03180651c04e0a52bb",
       "bytes": 36030897
@@ -23,7 +23,7 @@
     {
       "id": "yolo26m-seg",
       "name": "YOLO26: Medium",
-      "description": "Best masks",
+      "description": "Best quality",
       "asset": "yolo26m-seg.zip",
       "sha256": "ec19d48db5a2f21f261368540401af31e652cbefbbb17cd332f76d0924223d14",
       "bytes": 79129115
@@ -47,7 +47,7 @@
     {
       "id": "yolo11m-seg",
       "name": "YOLOv11: Medium",
-      "description": "Detailed fallback",
+      "description": "Quality fallback",
       "asset": "yolo11m-seg.zip",
       "sha256": "ae900da567a02b6712a698bb8be9ec94333e1f53a9ab6308c8a2e899c7040c75",
       "bytes": 75043888
@@ -55,7 +55,7 @@
     {
       "id": "yolov8n-seg",
       "name": "YOLOv8: Nano",
-      "description": "Older fast",
+      "description": "Older, fastest",
       "asset": "yolov8n-seg.zip",
       "sha256": "e18d24a0248754300d729a9385b1265acd714e0a3600b94fa1c713ee888c264e",
       "bytes": 11916822
@@ -63,7 +63,7 @@
     {
       "id": "yolov8s-seg",
       "name": "YOLOv8: Small",
-      "description": "Older balanced",
+      "description": "Older, balanced",
       "asset": "yolov8s-seg.zip",
       "sha256": "26d3d48c7a4d45782751caf1ccb834b454d1606ce45dd95ff32e5b26e12fbe99",
       "bytes": 40010683
@@ -71,10 +71,28 @@
     {
       "id": "yolov8m-seg",
       "name": "YOLOv8: Medium",
-      "description": "Older detailed",
+      "description": "Older, quality",
       "asset": "yolov8m-seg.zip",
       "sha256": "6f637b71b23d9deed59d8f796d68d1274788844656771ee8095f45354be6bb8d",
       "bytes": 90898970
+    },
+    {
+      "id": "yoloe-26n-seg",
+      "name": "YOLOE: Nano",
+      "description": "More labels, fast",
+      "asset": "yoloe-26n-seg.zip"
+    },
+    {
+      "id": "yoloe-26s-seg",
+      "name": "YOLOE: Small",
+      "description": "More labels, balanced",
+      "asset": "yoloe-26s-seg.zip"
+    },
+    {
+      "id": "yoloe-26m-seg",
+      "name": "YOLOE: Medium",
+      "description": "More labels, quality",
+      "asset": "yoloe-26m-seg.zip"
     }
   ]
 }

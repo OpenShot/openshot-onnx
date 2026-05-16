@@ -48,18 +48,18 @@ FAMILY_NAMES = {
 }
 
 MODEL_DESCRIPTIONS = {
-    "yolo26n-seg": "Best default",
-    "yolo26s-seg": "Better masks",
-    "yolo26m-seg": "Best masks",
+    "yolo26n-seg": "Recommended, fastest",
+    "yolo26s-seg": "Better quality",
+    "yolo26m-seg": "Best quality",
     "yolo11n-seg": "Fast fallback",
     "yolo11s-seg": "Balanced fallback",
-    "yolo11m-seg": "Detailed fallback",
-    "yolov8n-seg": "Older fast",
-    "yolov8s-seg": "Older balanced",
-    "yolov8m-seg": "Older detailed",
-    "yoloe-26n-seg": "More labels",
-    "yoloe-26s-seg": "More labels plus",
-    "yoloe-26m-seg": "Most labels",
+    "yolo11m-seg": "Quality fallback",
+    "yolov8n-seg": "Older, fastest",
+    "yolov8s-seg": "Older, balanced",
+    "yolov8m-seg": "Older, quality",
+    "yoloe-26n-seg": "More labels, fast",
+    "yoloe-26s-seg": "More labels, balanced",
+    "yoloe-26m-seg": "More labels, quality",
 }
 
 FAMILY_ORDER = ("yolo26", "yolo11", "yolov8", "yoloe26")
@@ -267,20 +267,28 @@ def update_release_manifest(
         for model in existing.get("models", []):
             existing_models[model["id"]] = model
 
+    packaged_by_id = {str(model["id"]): model for model in packaged_models}
+    all_model_ids = set(existing_models) | set(packaged_by_id)
     updated_models = []
-    for packaged in packaged_models:
-        model_id = str(packaged["id"])
+    for model_id in all_model_ids:
+        packaged = packaged_by_id.get(model_id)
         defaults = release_model_defaults(model_id)
         previous = existing_models.get(model_id, {})
         entry = {
             "id": model_id,
             "name": previous.get("name", defaults["name"]),
             "description": previous.get("description", defaults["description"]),
-            "asset": previous.get("asset", packaged["asset"]),
-            "sha256": packaged["sha256"],
+            "asset": previous.get("asset", defaults["asset"]),
         }
-        if packaged.get("bytes") is not None:
+        if packaged:
+            entry["asset"] = packaged["asset"]
+            entry["sha256"] = packaged["sha256"]
+        elif previous.get("sha256"):
+            entry["sha256"] = previous["sha256"]
+        if packaged and packaged.get("bytes") is not None:
             entry["bytes"] = packaged["bytes"]
+        elif previous.get("bytes") is not None:
+            entry["bytes"] = previous["bytes"]
         if previous.get("recommended", defaults.get("recommended", False)):
             entry["recommended"] = True
         updated_models.append(entry)
