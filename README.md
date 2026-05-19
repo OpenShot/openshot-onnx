@@ -1,129 +1,55 @@
-# YOLO ONNX Exports for OpenShot
+# OpenShot ONNX Exports
 
-This repo builds OpenCV-friendly ONNX exports of official Ultralytics YOLO
-segmentation models for use in OpenShot and libopenshot.
+This repository builds OpenCV-friendly ONNX model packages for OpenShot and
+libopenshot. The generated ONNX files and zip packages are static runtime
+assets: OpenShot should not need Python, PyTorch, or the upstream training
+frameworks after export.
 
-The generated models are static ONNX graphs: no Python, PyTorch, or Ultralytics
-runtime is needed after export. OpenShot/libopenshot can load them with OpenCV
-DNN and handle thresholds, NMS, labels, boxes, and masks in C++.
+## Model Families
 
-## Getting Started
+| Family | Purpose | Directory |
+| --- | --- | --- |
+| YOLO | Object detection and instance segmentation | [`yolo/`](yolo/) |
+| EfficientSAM | Prompted seed-mask generation for Object Mask | [`efficient-sam/`](efficient-sam/) |
+| Cutie | Video object mask propagation for Object Mask | [`cutie/`](cutie/) |
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
+XMem remains in `experiments/` as historical scratch work and is not promoted as
+a supported release family.
 
-python -m pip install --upgrade pip
-python -m pip install --upgrade torch torchvision --index-url https://download.pytorch.org/whl/cpu
-python -m pip install --no-deps -r requirements.txt
+## Release Artifacts
 
-python scripts/export_yolo_seg_onnx.py
-```
+Generated model binaries are ignored by Git. Build them locally and upload the
+zip files as GitHub Release assets after reviewing upstream model licenses.
 
-Default output goes here:
-
-```text
-models/pt/       downloaded official checkpoints
-models/onnx/     exported ONNX models
-models/labels/   shared label files and manifest
-releases/        generated GitHub Release zip assets
-models.json      friendly release/download catalog for consumers
-```
-
-Large model binaries and generated release zips are ignored by Git. `models.json`
-is the file apps and scripts should read: it lists the friendly model names,
-release zip assets, and download base URL. During release packaging, the exporter
-refreshes each generated zip checksum.
-
-## Models
-
-Default export:
-
-```bash
-python scripts/export_yolo_seg_onnx.py
-```
-
-Exports nano, small, and medium segmentation models for:
-
-- `yolov8` COCO 80 classes
-- `yolo11` COCO 80 classes
-- `yolo26` COCO 80 classes
-
-Optional broad-vocabulary YOLOE export:
-
-```bash
-python scripts/export_yolo_seg_onnx.py --families yoloe26
-```
-
-YOLOE-26 uses the official prompt-free checkpoint vocabulary, embeds its 4,585
-labels with MobileCLIP during export, and writes a static ONNX model. MobileCLIP
-is not needed at runtime.
-
-Export everything:
-
-```bash
-python scripts/export_yolo_seg_onnx.py --families yolov8 yolo11 yolo26 yoloe26
-```
-
-## Release Packages
-
-The exporter writes one self-contained zip per model under `releases/` and
-updates `models.json`:
+Common outputs:
 
 ```text
-releases/yolo26n-seg.zip
-  model.onnx
-  classes.names
+yolo/releases/          YOLO zip packages and yolo/models.json
+efficient-sam/releases/ EfficientSAM zip packages
+cutie/releases/         Cutie zip packages and cutie-models.json
 ```
 
-The checked-in `models.json` intentionally stays small so OpenShot can populate
-a compact dropdown such as `YOLO26: Nano`, `YOLOv11: Nano`, and `YOLOv8: Nano`.
+## Quick Commands
 
-## Details
-
-All exports use:
-
-- `640x640` static input
-- batch size `1`
-- ONNX opset `17`
-- `dynamic=False`
-- `nms=False`
-- `end2end=False`
-- `simplify=True`
-
-The ONNX output is raw YOLO segmentation output. Consumers are responsible for
-post-processing.
-
-Label files are shared instead of duplicated per model:
-
-```text
-models/labels/coco80.names
-models/labels/yoloe26-4585.names
-models/labels/manifest.json
-```
-
-Release zips duplicate the required labels as `classes.names` so every download
-is self-contained.
-
-## Examples
+YOLO:
 
 ```bash
-python scripts/export_yolo_seg_onnx.py --sizes n
-python scripts/export_yolo_seg_onnx.py --families yolo26
-python scripts/export_yolo_seg_onnx.py --families yoloe26 --sizes n
-python scripts/export_yolo_seg_onnx.py --force-download
-python scripts/export_yolo_seg_onnx.py --skip-opencv-validate
+python yolo/scripts/export_yolo_seg_onnx.py
 ```
+
+Cutie:
+
+```bash
+python cutie/scripts/export_cutie_quality_tiers.py
+```
+
+EfficientSAM:
+
+See [`efficient-sam/README.md`](efficient-sam/README.md). Its export/release
+tooling will live there as it is promoted from experiments.
 
 ## Links
 
-- [Ultralytics GitHub](https://github.com/ultralytics/ultralytics)
-- [Ultralytics model assets](https://github.com/ultralytics/assets/releases)
-- [YOLOv8 docs](https://docs.ultralytics.com/models/yolov8/)
-- [YOLO11 docs](https://docs.ultralytics.com/models/yolo11/)
-- [YOLO26 docs](https://docs.ultralytics.com/models/yolo26/)
-- [YOLOE docs](https://docs.ultralytics.com/models/yoloe/)
-- [Ultralytics license](https://www.ultralytics.com/license)
 - [OpenShot](https://www.openshot.org/)
 - [OpenShot GitHub](https://github.com/OpenShot/openshot-qt)
 - [libopenshot](https://github.com/OpenShot/libopenshot)
@@ -131,7 +57,7 @@ python scripts/export_yolo_seg_onnx.py --skip-opencv-validate
 
 ## Project Notes
 
-This is an export utility, not an official Ultralytics or OpenShot project.
-See [MODEL_ARTIFACTS.md](MODEL_ARTIFACTS.md) and [NOTICE.md](NOTICE.md) for
+This is an export utility, not an official upstream model project. See
+[`MODELS.md`](MODELS.md) and [`NOTICE.md`](NOTICE.md) for
 artifact and licensing notes. The repository code is MIT licensed; upstream
-model weights and generated ONNX files remain subject to Ultralytics licensing.
+model weights and generated ONNX files remain subject to their upstream terms.

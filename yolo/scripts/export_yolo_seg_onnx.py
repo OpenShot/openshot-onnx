@@ -29,7 +29,7 @@ MODELS_JSON = REPO_ROOT / "models.json"
 DEFAULT_RELEASE_DIR = REPO_ROOT / "releases"
 DEFAULT_RELEASE_TAG = "v0.1.0"
 DEFAULT_RELEASE_BASE_URL = (
-    "https://github.com/OpenShot/openshot-yolo-onnx/releases/download"
+    "https://github.com/OpenShot/openshot-onnx/releases/download"
 )
 
 SIZE_NAMES = {

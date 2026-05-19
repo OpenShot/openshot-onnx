@@ -1,0 +1,13 @@
+torch
+torchvision
+onnx
+onnxruntime
+onnxsim
+hydra-core
+omegaconf
+easydict
+einops
+numpy
+opencv-python-headless
+requests
+tqdm

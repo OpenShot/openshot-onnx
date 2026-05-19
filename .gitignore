@@ -8,11 +8,23 @@ __pycache__/
 .vscode/
 
 # Generated model artifacts. Keep these local or publish via Git LFS/releases.
-models/pt/*.pt
-models/onnx/*.onnx
-models/text/*.ts
-models/**/*.tmp
-releases/
+yolo/models/pt/*.pt
+yolo/models/onnx/*.onnx
+yolo/models/text/*.ts
+yolo/models/**/*.tmp
+yolo/releases/
+
+# Generated EfficientSAM assets
+efficient-sam/models/
+efficient-sam/build/
+efficient-sam/releases/
+
+# Generated Cutie assets and local upstream checkout
+cutie/vendor/
+cutie/weights/
+cutie/models/
+cutie/build/
+cutie/releases/
 
 # OS/local noise
 .DS_Store

@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "release": "v0.1.0",
-  "base_url": "https://github.com/OpenShot/openshot-yolo-onnx/releases/download/v0.1.0",
+  "base_url": "https://github.com/OpenShot/openshot-onnx/releases/download/v0.1.0",
   "models": [
     {
       "id": "yolo26n-seg",
