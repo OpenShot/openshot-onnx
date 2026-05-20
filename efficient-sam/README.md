@@ -83,7 +83,8 @@ The script:
 3. Converts the upstream Small model to a static `1024x1024` OpenCV-friendly ONNX.
 4. Compiles the C++ OpenCV DNN probe.
 5. Validates a forward pass when sample data is available.
-6. Writes zip assets and a manifest under `efficient-sam/releases/`.
+6. Writes zip assets under `efficient-sam/releases/`.
+7. Updates the release catalog at `efficient-sam/models.json`.
 
 The Small conversion requires:
 
@@ -130,8 +131,8 @@ efficient-sam-small-static-1024.zip
   image_segmentation_efficientsam_s_static_1024.onnx
 ```
 
-The exporter also writes `efficient-sam/releases/efficient-sam-models.json`
-with the asset name, checksum, model filename, and size.
+The exporter also updates `efficient-sam/models.json` with the asset name,
+checksum, and size.
 
 ## Probe
 

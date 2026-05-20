@@ -55,6 +55,7 @@ The script:
    memory readout graph.
 6. Validates each tier with OpenCV DNN.
 7. Writes zip assets under `cutie/releases`.
+8. Updates the release catalog at `cutie/models.json`.
 
 Generated local directories:
 
@@ -98,8 +99,8 @@ cutie-opencv-medium-640x368.zip
   cutie-decode-640x368.onnx
 ```
 
-The exporter also writes `cutie/releases/cutie-models.json` with asset names,
-dimensions, checksums, and sizes.
+The exporter also updates `cutie/models.json` with asset names, dimensions,
+checksums, and sizes.
 
 ## Individual Scripts
 

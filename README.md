@@ -24,9 +24,12 @@ zip files as GitHub Release assets after reviewing upstream model licenses.
 Common outputs:
 
 ```text
-yolo/releases/          YOLO zip packages and yolo/models.json
-efficient-sam/releases/ EfficientSAM zip packages
-cutie/releases/         Cutie zip packages and cutie-models.json
+yolo/models.json          YOLO release catalog
+yolo/releases/            YOLO zip packages
+efficient-sam/models.json EfficientSAM release catalog
+efficient-sam/releases/   EfficientSAM zip packages
+cutie/models.json         Cutie release catalog
+cutie/releases/           Cutie zip packages
 ```
 
 ## Quick Commands
@@ -45,8 +48,9 @@ python cutie/scripts/export_cutie_quality_tiers.py
 
 EfficientSAM:
 
-See [`efficient-sam/README.md`](efficient-sam/README.md). Its export/release
-tooling will live there as it is promoted from experiments.
+```bash
+python efficient-sam/scripts/package_efficient_sam.py
+```
 
 ## Links
 

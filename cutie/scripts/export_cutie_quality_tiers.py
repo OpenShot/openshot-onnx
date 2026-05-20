@@ -23,7 +23,8 @@ DEFAULT_CUTIE_ROOT = CUTIE_DIR / "vendor" / "Cutie"
 DEFAULT_WEIGHTS = CUTIE_DIR / "weights" / "cutie-base-mega.pth"
 DEFAULT_MODELS_DIR = CUTIE_DIR / "models"
 DEFAULT_RELEASE_DIR = CUTIE_DIR / "releases"
-DEFAULT_RELEASE_TAG = "v0.1.0"
+DEFAULT_MODELS_JSON = CUTIE_DIR / "models.json"
+DEFAULT_RELEASE_TAG = "v0.2.0"
 DEFAULT_RELEASE_BASE_URL = (
     "https://github.com/OpenShot/openshot-onnx/releases/download"
 )
@@ -194,11 +195,7 @@ def package_tier(args: argparse.Namespace, tier: Tier) -> dict[str, object]:
         "asset": zip_path.name,
         "sha256": file_sha256(zip_path),
         "bytes": zip_path.stat().st_size,
-        "width": tier.width,
-        "height": tier.height,
-        "memory_frames": args.memory_frames,
-        "top_k": args.top_k,
-        "recommended": tier.id == "medium",
+        **({"recommended": True} if tier.id == "medium" else {}),
     }
 
 
@@ -221,17 +218,40 @@ def validate_tier(args: argparse.Namespace, tier: Tier, probe: Path) -> None:
     shutil.rmtree(staging)
 
 
+def model_sort_key(item: dict[str, object]) -> tuple[int, str]:
+    order = {f"cutie-{tier.id}": index for index, tier in enumerate(TIERS)}
+    model_id = str(item["id"])
+    return (order.get(model_id, len(order)), model_id)
+
+
+def catalog_entry(entry: dict[str, object]) -> dict[str, object]:
+    keys = ("id", "name", "description", "asset", "sha256", "bytes", "recommended")
+    catalog = {key: entry[key] for key in keys if key in entry}
+    if not catalog.get("recommended", False):
+        catalog.pop("recommended", None)
+    return catalog
+
+
 def write_manifest(args: argparse.Namespace, entries: list[dict[str, object]]) -> None:
+    existing_models: dict[str, dict[str, object]] = {}
+    if args.models_json.exists():
+        existing = json.loads(args.models_json.read_text(encoding="utf-8"))
+        for model in existing.get("models", []):
+            existing_models[str(model["id"])] = catalog_entry(model)
+
+    updated_models = {**existing_models}
+    for entry in entries:
+        updated_models[str(entry["id"])] = catalog_entry(entry)
+
     manifest = {
-        "schema": 1,
-        "name": "Cutie OpenCV ONNX Models",
-        "release_tag": args.release_tag,
-        "download_base_url": f"{args.release_base_url}/{args.release_tag}",
-        "models": entries,
+        "version": args.release_tag.removeprefix("v"),
+        "release": args.release_tag,
+        "base_url": f"{args.release_base_url.rstrip('/')}/{args.release_tag}",
+        "models": sorted(updated_models.values(), key=model_sort_key),
     }
-    path = args.release_dir / "cutie-models.json"
-    path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"Wrote {path}")
+    args.models_json.parent.mkdir(parents=True, exist_ok=True)
+    args.models_json.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {args.models_json}")
 
 
 def selected_tiers(names: list[str]) -> list[Tier]:
@@ -247,6 +267,7 @@ def main() -> None:
     parser.add_argument("--weights", type=Path, default=DEFAULT_WEIGHTS)
     parser.add_argument("--models-dir", type=Path, default=DEFAULT_MODELS_DIR)
     parser.add_argument("--release-dir", type=Path, default=DEFAULT_RELEASE_DIR)
+    parser.add_argument("--models-json", type=Path, default=DEFAULT_MODELS_JSON)
     parser.add_argument("--release-tag", default=DEFAULT_RELEASE_TAG)
     parser.add_argument("--release-base-url", default=DEFAULT_RELEASE_BASE_URL)
     parser.add_argument("--tier", choices=[tier.id for tier in TIERS], action="append")
@@ -263,6 +284,7 @@ def main() -> None:
     args.weights = args.weights.expanduser().resolve()
     args.models_dir = args.models_dir.expanduser().resolve()
     args.release_dir = args.release_dir.expanduser().resolve()
+    args.models_json = args.models_json.expanduser().resolve()
 
     if not args.skip_export and not args.skip_clone:
         ensure_cutie_checkout(args.cutie_root)

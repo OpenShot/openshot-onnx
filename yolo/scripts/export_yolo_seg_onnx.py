@@ -27,7 +27,7 @@ YOLOE26_LABELS = REPO_ROOT / "models" / "labels" / "yoloe26-4585.names"
 LABEL_MANIFEST = REPO_ROOT / "models" / "labels" / "manifest.json"
 MODELS_JSON = REPO_ROOT / "models.json"
 DEFAULT_RELEASE_DIR = REPO_ROOT / "releases"
-DEFAULT_RELEASE_TAG = "v0.1.0"
+DEFAULT_RELEASE_TAG = "v0.2.0"
 DEFAULT_RELEASE_BASE_URL = (
     "https://github.com/OpenShot/openshot-onnx/releases/download"
 )

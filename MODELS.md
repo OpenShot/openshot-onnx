@@ -61,5 +61,9 @@ packages are generated.
 
 Cutie release packages are generated under `cutie/releases/` and contain the
 four ONNX slices needed by libopenshot's Cutie Object Mask backend. The Cutie
-exporter also writes `cutie/releases/cutie-models.json` with asset names,
-dimensions, and checksums.
+exporter updates `cutie/models.json` with asset names, dimensions, and
+checksums.
+
+EfficientSAM release packages are generated under `efficient-sam/releases/`.
+The EfficientSAM exporter updates `efficient-sam/models.json` with asset names,
+checksums, and sizes.

@@ -21,7 +21,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 EFFICIENT_SAM_DIR = SCRIPT_DIR.parent
 DEFAULT_MODELS_DIR = EFFICIENT_SAM_DIR / "models"
 DEFAULT_RELEASE_DIR = EFFICIENT_SAM_DIR / "releases"
-DEFAULT_RELEASE_TAG = "v0.1.0"
+DEFAULT_MODELS_JSON = EFFICIENT_SAM_DIR / "models.json"
+DEFAULT_RELEASE_TAG = "v0.2.0"
 DEFAULT_RELEASE_BASE_URL = (
     "https://github.com/OpenShot/openshot-onnx/releases/download"
 )
@@ -153,33 +154,59 @@ def package_model(variant: ModelVariant, model_path: Path, release_dir: Path) ->
         "asset": zip_path.name,
         "sha256": sha256_file(zip_path),
         "bytes": zip_path.stat().st_size,
-        "model": variant.model_name,
-        "source_model": variant.source_name,
-        "model_sha256": sha256_file(model_path),
-        "input_size": [1024, 1024],
-        "recommended": variant.recommended,
     }
+    if variant.recommended:
+        entry["recommended"] = True
     print(f"Wrote {zip_path}")
     return entry
 
 
-def write_manifest(release_dir: Path, release_tag: str, release_base_url: str, entries: list[dict[str, object]]) -> None:
+def model_sort_key(item: dict[str, object]) -> tuple[int, str]:
+    order = {variant.id: index for index, variant in enumerate(VARIANTS.values())}
+    model_id = str(item["id"])
+    return (order.get(model_id, len(order)), model_id)
+
+
+def catalog_entry(entry: dict[str, object]) -> dict[str, object]:
+    keys = ("id", "name", "description", "asset", "sha256", "bytes", "recommended")
+    catalog = {key: entry[key] for key in keys if key in entry}
+    if not catalog.get("recommended", False):
+        catalog.pop("recommended", None)
+    return catalog
+
+
+def write_manifest(
+    models_json: Path,
+    release_tag: str,
+    release_base_url: str,
+    entries: list[dict[str, object]],
+) -> None:
+    existing_models: dict[str, dict[str, object]] = {}
+    if models_json.exists():
+        existing = json.loads(models_json.read_text(encoding="utf-8"))
+        for model in existing.get("models", []):
+            existing_models[str(model["id"])] = catalog_entry(model)
+
+    updated_models = {**existing_models}
+    for entry in entries:
+        updated_models[str(entry["id"])] = catalog_entry(entry)
+
     manifest = {
-        "schema": 1,
-        "name": "EfficientSAM OpenCV ONNX Models",
-        "release_tag": release_tag,
-        "download_base_url": f"{release_base_url}/{release_tag}",
-        "models": entries,
+        "version": release_tag.removeprefix("v"),
+        "release": release_tag,
+        "base_url": f"{release_base_url.rstrip('/')}/{release_tag}",
+        "models": sorted(updated_models.values(), key=model_sort_key),
     }
-    path = release_dir / "efficient-sam-models.json"
-    path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"Wrote {path}")
+    models_json.parent.mkdir(parents=True, exist_ok=True)
+    models_json.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {models_json}")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--models-dir", type=Path, default=DEFAULT_MODELS_DIR)
     parser.add_argument("--release-dir", type=Path, default=DEFAULT_RELEASE_DIR)
+    parser.add_argument("--models-json", type=Path, default=DEFAULT_MODELS_JSON)
     parser.add_argument("--release-tag", default=DEFAULT_RELEASE_TAG)
     parser.add_argument("--release-base-url", default=DEFAULT_RELEASE_BASE_URL)
     parser.add_argument(
@@ -196,6 +223,7 @@ def main() -> None:
 
     args.models_dir = args.models_dir.expanduser().resolve()
     args.release_dir = args.release_dir.expanduser().resolve()
+    args.models_json = args.models_json.expanduser().resolve()
 
     selected = VARIANTS.values() if args.variant == "all" else [VARIANTS[args.variant]]
     entries = []
@@ -225,7 +253,7 @@ def main() -> None:
             validate_model(probe, model_path, args.release_dir / "_validate" / variant.id)
         entries.append(package_model(variant, model_path, args.release_dir))
 
-    write_manifest(args.release_dir, args.release_tag, args.release_base_url, entries)
+    write_manifest(args.models_json, args.release_tag, args.release_base_url, entries)
 
 
 if __name__ == "__main__":
