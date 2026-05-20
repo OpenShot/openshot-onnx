@@ -8,7 +8,7 @@
       "name": "YOLO26: Nano",
       "description": "Recommended, fastest",
       "asset": "yolo26n-seg.zip",
-      "sha256": "9acd85c6c572ecfd2c88272eb040e12cc35f853b26b8336bda4617038882246e",
+      "sha256": "b172c0bf6f2c67f0cc45d24184b9d010485439b5e9e27c55d1ba01220b2a3285",
       "bytes": 9721608,
       "recommended": true
     },
@@ -17,15 +17,15 @@
       "name": "YOLO26: Small",
       "description": "Better quality",
       "asset": "yolo26s-seg.zip",
-      "sha256": "280dfd82c26948964c0703893d6b16c7e5f81d39c1e59c03180651c04e0a52bb",
-      "bytes": 36030897
+      "sha256": "1abdf43a49d0d377330116705fff096ce8620a71bade77af9855bc0568c74418",
+      "bytes": 36030896
     },
     {
       "id": "yolo26m-seg",
       "name": "YOLO26: Medium",
       "description": "Best quality",
       "asset": "yolo26m-seg.zip",
-      "sha256": "ec19d48db5a2f21f261368540401af31e652cbefbbb17cd332f76d0924223d14",
+      "sha256": "f06dbfc76221a0fcbdfad622522a59bb6b04c2b47190a45bc9d66b662e759110",
       "bytes": 79129115
     },
     {
@@ -33,23 +33,23 @@
       "name": "YOLOE-26: Nano",
       "description": "More labels, fast",
       "asset": "yoloe-26n-seg.zip",
-      "sha256": "0f7cd6d7e309f349fa80409a7a1f2fd8d85bb6209c9d8da7dc554429cf8154e7",
-      "bytes": 13836109
+      "sha256": "c6affd0bf54f2c421285fceda2f3c986cbf1c85b59bee11bc2634578bea01fa5",
+      "bytes": 13836110
     },
     {
       "id": "yoloe-26s-seg",
       "name": "YOLOE-26: Small",
       "description": "More labels, balanced",
       "asset": "yoloe-26s-seg.zip",
-      "sha256": "104ac7992e411c86a185e7203e8e88a31291d940a18d31eea7025ddc25af34d5",
-      "bytes": 42569476
+      "sha256": "708889f2bc292db9dceed485ecd390fd2ed336a248ddd23b532144efc42ae054",
+      "bytes": 42569475
     },
     {
       "id": "yoloe-26m-seg",
       "name": "YOLOE-26: Medium",
       "description": "More labels, quality",
       "asset": "yoloe-26m-seg.zip",
-      "sha256": "669530387eaafbb47265c782f7d393504b52045d5092de682df84161510a65c0",
+      "sha256": "fbdd0d775e86bb55d53aa3db7c605d9c02b6c3b5f24f9a5ff1966c5dceedc4b1",
       "bytes": 92050454
     },
     {
@@ -57,15 +57,15 @@
       "name": "YOLOv11: Nano",
       "description": "Fast fallback",
       "asset": "yolo11n-seg.zip",
-      "sha256": "de889500c9aa05c679011eee63c6c318c09057b273e9e412c83220ff7203343e",
-      "bytes": 10182825
+      "sha256": "c453e25776b27a8b34a9d439590bf9ea1fbe0392df6ccf8b7cf8050c49be4acf",
+      "bytes": 10182826
     },
     {
       "id": "yolo11s-seg",
       "name": "YOLOv11: Small",
       "description": "Balanced fallback",
       "asset": "yolo11s-seg.zip",
-      "sha256": "2d2b87caf93eed7e5b4ebf24608a60f05aa7cbede4c0317af05d06ae54f03ce3",
+      "sha256": "e3bd61524079ce70a145de6f98d5eb91279c701351f06fa19514d1a92aa8ae11",
       "bytes": 34865121
     },
     {
@@ -73,7 +73,7 @@
       "name": "YOLOv11: Medium",
       "description": "Quality fallback",
       "asset": "yolo11m-seg.zip",
-      "sha256": "ae900da567a02b6712a698bb8be9ec94333e1f53a9ab6308c8a2e899c7040c75",
+      "sha256": "3cd2b211518047673e8e7a5285072a1a5d121d29c5fa6c7a2b04e915e2b27999",
       "bytes": 75043888
     },
     {
@@ -81,15 +81,15 @@
       "name": "YOLOv8: Nano",
       "description": "Older, fastest",
       "asset": "yolov8n-seg.zip",
-      "sha256": "e18d24a0248754300d729a9385b1265acd714e0a3600b94fa1c713ee888c264e",
-      "bytes": 11916822
+      "sha256": "a75ebd6ee9d20622aec8dec32408ca3faf0153c9c6cf309082b5011edc9b81cc",
+      "bytes": 11916821
     },
     {
       "id": "yolov8s-seg",
       "name": "YOLOv8: Small",
       "description": "Older, balanced",
       "asset": "yolov8s-seg.zip",
-      "sha256": "26d3d48c7a4d45782751caf1ccb834b454d1606ce45dd95ff32e5b26e12fbe99",
+      "sha256": "a1fc8eb351ef21b70218123ac1e8ec157af67252665461210ac5cb3212b15e6d",
       "bytes": 40010683
     },
     {
@@ -97,7 +97,7 @@
       "name": "YOLOv8: Medium",
       "description": "Older, quality",
       "asset": "yolov8m-seg.zip",
-      "sha256": "6f637b71b23d9deed59d8f796d68d1274788844656771ee8095f45354be6bb8d",
+      "sha256": "a0f1f323421fe706a778c9a2ccf9be1f00c7cb59adb2425d163142def07f7697",
       "bytes": 90898970
     }
   ]
