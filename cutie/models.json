@@ -5,16 +5,16 @@
   "models": [
     {
       "id": "cutie-low",
-      "name": "Cutie: Low",
-      "description": "Fastest 16:9 Cutie propagation tier",
+      "name": "Small",
+      "description": "fast",
       "asset": "cutie-opencv-low-480x272.zip",
       "sha256": "5ef34a24f84ee076de7d4b7439bd423cb5d50b69a3810b57bdd50010ac6db28d",
       "bytes": 129998832
     },
     {
       "id": "cutie-medium",
-      "name": "Cutie: Medium",
-      "description": "Balanced 16:9 Cutie propagation tier",
+      "name": "Medium",
+      "description": "recommended, balanced",
       "asset": "cutie-opencv-medium-640x368.zip",
       "sha256": "64f79a30d4e53f2aad597772968f18dcc3806ef8dfbe1fefcbf4b58fac069709",
       "bytes": 130823166,
@@ -22,16 +22,16 @@
     },
     {
       "id": "cutie-high",
-      "name": "Cutie: High",
-      "description": "Higher-detail 16:9 Cutie propagation tier",
+      "name": "Large",
+      "description": "quality",
       "asset": "cutie-opencv-high-960x544.zip",
       "sha256": "56c5b4823610c8f87b551b82893ef0450f900c254b4ff729f24aec30dea2124f",
       "bytes": 131949289
     },
     {
       "id": "cutie-very-high",
-      "name": "Cutie: Very High",
-      "description": "Highest-detail 16:9 Cutie propagation tier",
+      "name": "Very High",
+      "description": "highest quality",
       "asset": "cutie-opencv-very-high-1280x720.zip",
       "sha256": "eb3cae8692f6fc08d1acb7e511934159373e6913d8ab3343f7622c1ab4302693",
       "bytes": 133618997

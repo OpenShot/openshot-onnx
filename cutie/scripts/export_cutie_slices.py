@@ -46,7 +46,7 @@ class EncodeValueWrapper(torch.nn.Module):
         self.network = network
 
     def forward(self, image, pix_feat, sensory, mask):
-        mask_value, new_sensory, object_memory, object_logits = self.network.encode_mask(
+        mask_value, new_sensory, object_memory, _object_logits = self.network.encode_mask(
             image,
             pix_feat,
             sensory,
@@ -55,9 +55,7 @@ class EncodeValueWrapper(torch.nn.Module):
             chunk_size=-1,
             need_weights=False,
         )
-        if object_logits is None:
-            object_logits = torch.empty(0, dtype=mask_value.dtype, device=mask_value.device)
-        return mask_value, new_sensory, object_memory, object_logits
+        return mask_value, new_sensory, object_memory
 
 
 class DecodeWrapper(torch.nn.Module):
@@ -315,7 +313,7 @@ def main():
         (image, pix_feat, sensory, mask),
         args.output_dir / f"cutie-encode-value-{size_name}.onnx",
         ["image", "pix_feat", "sensory", "mask"],
-        ["mask_value", "new_sensory", "object_memory", "object_logits"],
+        ["mask_value", "new_sensory", "object_memory"],
         args.opset,
     )
     export_model(

@@ -48,18 +48,18 @@ FAMILY_NAMES = {
 }
 
 MODEL_DESCRIPTIONS = {
-    "yolo26n-seg": "Recommended, fastest",
-    "yolo26s-seg": "Better quality",
-    "yolo26m-seg": "Best quality",
-    "yolo11n-seg": "Fast fallback",
-    "yolo11s-seg": "Balanced fallback",
-    "yolo11m-seg": "Quality fallback",
-    "yolov8n-seg": "Older, fastest",
-    "yolov8s-seg": "Older, balanced",
-    "yolov8m-seg": "Older, quality",
-    "yoloe-26n-seg": "More labels, fast",
-    "yoloe-26s-seg": "More labels, balanced",
-    "yoloe-26m-seg": "More labels, quality",
+    "yolo26n-seg": "recommended, fast",
+    "yolo26s-seg": "balanced",
+    "yolo26m-seg": "quality",
+    "yolo11n-seg": "legacy, fast",
+    "yolo11s-seg": "legacy, balanced",
+    "yolo11m-seg": "legacy, quality",
+    "yolov8n-seg": "legacy, fast",
+    "yolov8s-seg": "legacy, balanced",
+    "yolov8m-seg": "legacy, quality",
+    "yoloe-26n-seg": "more labels, fast",
+    "yoloe-26s-seg": "more labels, balanced",
+    "yoloe-26m-seg": "more labels, quality",
 }
 
 FAMILY_ORDER = ("yolo26", "yoloe26", "yolo11", "yolov8")

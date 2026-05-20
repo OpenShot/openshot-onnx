@@ -5,8 +5,8 @@
   "models": [
     {
       "id": "efficient-sam-tiny-1024",
-      "name": "EfficientSAM: Tiny 1024",
-      "description": "Fast prompted seed-mask generator for Object Mask",
+      "name": "EfficientSAM: Tiny",
+      "description": "recommended, fast",
       "asset": "efficient-sam-tiny-1024.zip",
       "sha256": "fe34dc1f6c2493cb4ce1433d5b93731f18a0a0325bb4a116bc4f6e7e43c64123",
       "bytes": 44738821,
@@ -14,8 +14,8 @@
     },
     {
       "id": "efficient-sam-small-static-1024",
-      "name": "EfficientSAM: Small 1024",
-      "description": "Higher-quality prompted seed-mask generator for Object Mask",
+      "name": "EfficientSAM: Small",
+      "description": "quality",
       "asset": "efficient-sam-small-static-1024.zip",
       "sha256": "f082d77fbb88fe236d8cf6bc391e73a43300979adce6ef5747055a86fac6e54d",
       "bytes": 107791958

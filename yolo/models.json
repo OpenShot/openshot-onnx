@@ -6,7 +6,7 @@
     {
       "id": "yolo26n-seg",
       "name": "YOLO26: Nano",
-      "description": "Recommended, fastest",
+      "description": "recommended, fast",
       "asset": "yolo26n-seg.zip",
       "sha256": "b172c0bf6f2c67f0cc45d24184b9d010485439b5e9e27c55d1ba01220b2a3285",
       "bytes": 9721608,
@@ -15,7 +15,7 @@
     {
       "id": "yolo26s-seg",
       "name": "YOLO26: Small",
-      "description": "Better quality",
+      "description": "balanced",
       "asset": "yolo26s-seg.zip",
       "sha256": "1abdf43a49d0d377330116705fff096ce8620a71bade77af9855bc0568c74418",
       "bytes": 36030896
@@ -23,7 +23,7 @@
     {
       "id": "yolo26m-seg",
       "name": "YOLO26: Medium",
-      "description": "Best quality",
+      "description": "quality",
       "asset": "yolo26m-seg.zip",
       "sha256": "f06dbfc76221a0fcbdfad622522a59bb6b04c2b47190a45bc9d66b662e759110",
       "bytes": 79129115
@@ -31,7 +31,7 @@
     {
       "id": "yoloe-26n-seg",
       "name": "YOLOE-26: Nano",
-      "description": "More labels, fast",
+      "description": "more labels, fast",
       "asset": "yoloe-26n-seg.zip",
       "sha256": "c6affd0bf54f2c421285fceda2f3c986cbf1c85b59bee11bc2634578bea01fa5",
       "bytes": 13836110
@@ -39,7 +39,7 @@
     {
       "id": "yoloe-26s-seg",
       "name": "YOLOE-26: Small",
-      "description": "More labels, balanced",
+      "description": "more labels, balanced",
       "asset": "yoloe-26s-seg.zip",
       "sha256": "708889f2bc292db9dceed485ecd390fd2ed336a248ddd23b532144efc42ae054",
       "bytes": 42569475
@@ -47,7 +47,7 @@
     {
       "id": "yoloe-26m-seg",
       "name": "YOLOE-26: Medium",
-      "description": "More labels, quality",
+      "description": "more labels, quality",
       "asset": "yoloe-26m-seg.zip",
       "sha256": "fbdd0d775e86bb55d53aa3db7c605d9c02b6c3b5f24f9a5ff1966c5dceedc4b1",
       "bytes": 92050454
@@ -55,7 +55,7 @@
     {
       "id": "yolo11n-seg",
       "name": "YOLOv11: Nano",
-      "description": "Fast fallback",
+      "description": "legacy, fast",
       "asset": "yolo11n-seg.zip",
       "sha256": "c453e25776b27a8b34a9d439590bf9ea1fbe0392df6ccf8b7cf8050c49be4acf",
       "bytes": 10182826
@@ -63,7 +63,7 @@
     {
       "id": "yolo11s-seg",
       "name": "YOLOv11: Small",
-      "description": "Balanced fallback",
+      "description": "legacy, balanced",
       "asset": "yolo11s-seg.zip",
       "sha256": "e3bd61524079ce70a145de6f98d5eb91279c701351f06fa19514d1a92aa8ae11",
       "bytes": 34865121
@@ -71,7 +71,7 @@
     {
       "id": "yolo11m-seg",
       "name": "YOLOv11: Medium",
-      "description": "Quality fallback",
+      "description": "legacy, quality",
       "asset": "yolo11m-seg.zip",
       "sha256": "3cd2b211518047673e8e7a5285072a1a5d121d29c5fa6c7a2b04e915e2b27999",
       "bytes": 75043888
@@ -79,7 +79,7 @@
     {
       "id": "yolov8n-seg",
       "name": "YOLOv8: Nano",
-      "description": "Older, fastest",
+      "description": "legacy, fast",
       "asset": "yolov8n-seg.zip",
       "sha256": "a75ebd6ee9d20622aec8dec32408ca3faf0153c9c6cf309082b5011edc9b81cc",
       "bytes": 11916821
@@ -87,7 +87,7 @@
     {
       "id": "yolov8s-seg",
       "name": "YOLOv8: Small",
-      "description": "Older, balanced",
+      "description": "legacy, balanced",
       "asset": "yolov8s-seg.zip",
       "sha256": "a1fc8eb351ef21b70218123ac1e8ec157af67252665461210ac5cb3212b15e6d",
       "bytes": 40010683
@@ -95,7 +95,7 @@
     {
       "id": "yolov8m-seg",
       "name": "YOLOv8: Medium",
-      "description": "Older, quality",
+      "description": "legacy, quality",
       "asset": "yolov8m-seg.zip",
       "sha256": "a0f1f323421fe706a778c9a2ccf9be1f00c7cb59adb2425d163142def07f7697",
       "bytes": 90898970

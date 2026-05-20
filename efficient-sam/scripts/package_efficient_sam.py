@@ -44,8 +44,8 @@ class ModelVariant:
 VARIANTS = {
     "tiny": ModelVariant(
         id="efficient-sam-tiny-1024",
-        name="EfficientSAM: Tiny 1024",
-        description="Fast prompted seed-mask generator for Object Mask",
+        name="EfficientSAM: Tiny",
+        description="recommended, fast",
         source_url=(
             "https://huggingface.co/opencv/image_segmentation_efficientsam/resolve/main/"
             "image_segmentation_efficientsam_ti_2025april.onnx"
@@ -57,8 +57,8 @@ VARIANTS = {
     ),
     "small": ModelVariant(
         id="efficient-sam-small-static-1024",
-        name="EfficientSAM: Small 1024",
-        description="Higher-quality prompted seed-mask generator for Object Mask",
+        name="EfficientSAM: Small",
+        description="quality",
         source_url="https://huggingface.co/yunyangx/EfficientSAM/resolve/main/efficientsam_s.onnx",
         source_name="efficientsam_s.onnx",
         source_sha256="b257787eeecdfd0db0626f83a8241874c35c74eb4c25c4d12ff0a478f90f30f9",

@@ -54,10 +54,10 @@ class Tier:
 
 
 TIERS = (
-    Tier("low", "Low", 480, 272, "Fastest 16:9 Cutie propagation tier"),
-    Tier("medium", "Medium", 640, 368, "Balanced 16:9 Cutie propagation tier"),
-    Tier("high", "High", 960, 544, "Higher-detail 16:9 Cutie propagation tier"),
-    Tier("very-high", "Very High", 1280, 720, "Highest-detail 16:9 Cutie propagation tier"),
+    Tier("low", "Small", 480, 272, "fast"),
+    Tier("medium", "Medium", 640, 368, "recommended, balanced"),
+    Tier("high", "Large", 960, 544, "quality"),
+    Tier("very-high", "Very High", 1280, 720, "highest quality"),
 )
 
 
@@ -190,7 +190,7 @@ def package_tier(args: argparse.Namespace, tier: Tier) -> dict[str, object]:
     print(f"Wrote {zip_path}")
     return {
         "id": f"cutie-{tier.id}",
-        "name": f"Cutie: {tier.name}",
+        "name": tier.name,
         "description": tier.description,
         "asset": zip_path.name,
         "sha256": file_sha256(zip_path),
